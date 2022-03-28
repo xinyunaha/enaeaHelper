@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         enaeaHelper
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  try to take over the world!
-// @author       xinyunaha
+// @author       xinyunaha ZiuChen
 // @match        https://study.enaea.edu.cn/circleIndexRedirect.do*
 // @match        https://study.enaea.edu.cn/viewerforccvideo.do*
-// @grant       GM_getValue
-// @grant       GM_setValue
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @run-at: document-start
 // ==/UserScript==
 
@@ -83,6 +83,8 @@
             if (document.getElementsByClassName("td-content").length != 0){
                 console.log('找到暂停按钮')
                 $("button:contains('继续学习')").click();
+                $(".dialog-content input").click(); // 问答选项
+                $(".dialog-button-container button").click(); // 问答弹窗
             } else {
                 console.log('未找到暂停按钮')
             }
