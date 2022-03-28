@@ -83,6 +83,8 @@
             if (document.getElementsByClassName("td-content").length != 0){
                 console.log('找到暂停按钮')
                 $("button:contains('继续学习')").click();
+                $(".dialog-content input").click(); // 问答选项
+                $(".dialog-button-container button").click(); // 问答弹窗
             } else {
                 console.log('未找到暂停按钮')
             }
