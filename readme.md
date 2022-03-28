@@ -5,7 +5,7 @@
 ## 2. 添加新脚本
 
 ## 如何使用
-* 下载浏览器油桃插件 Tampermonkey
+* 下载浏览器油猴插件 Tampermonkey
 * 添加新脚本
 * 打开油猴插件管理面板
 * 添加仓库内enaeaHelper.js的代码即可
