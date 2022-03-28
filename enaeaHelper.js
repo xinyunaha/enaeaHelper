@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         enaeaHelper
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  try to take over the world!
-// @author       xinyunaha
+// @author       xinyunaha ZiuChen
 // @match        https://study.enaea.edu.cn/circleIndexRedirect.do*
 // @match        https://study.enaea.edu.cn/viewerforccvideo.do*
-// @grant       GM_getValue
-// @grant       GM_setValue
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @run-at: document-start
 // ==/UserScript==
 
