@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         enaeaHelper
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.2
 // @description  try to take over the world!
-// @author       xinyunaha ZiuChen
+// @author       yourself
 // @match        https://study.enaea.edu.cn/circleIndexRedirect.do*
 // @match        https://study.enaea.edu.cn/viewerforccvideo.do*
 // @grant        GM_getValue
@@ -16,6 +16,9 @@
     var url = window.location.pathname
     var checkBtn = setInterval(clickContinueBtn,3000);
     var checkFinished = setInterval(awaitPageFinishe,5000);
+    var checkProgressed = setInterval(checkProgress,3000);
+
+    var speed = 4 // 播放速度，建议在2～4
 
     if (url == '/circleIndexRedirect.do' && testUrl('action','toNewMyClass') && testUrl('type','course')) {
         sleep(1000).then(() => {
@@ -42,7 +45,7 @@
             var l1 = document.getElementsByClassName("cvtb-MCK-CsCt-studyProgress")
             var l2 = document.getElementsByClassName("cvtb-MCK-CsCt-info clearfix")
             var l3 = document.getElementsByClassName("cvtb-MCK-CsCt-title cvtb-text-ellipsis")
-            console.log(l1.length == 0 , l2.length == 0)
+            console.log(l1, l2, l3)
             if (l1.length == 0 && l2.length == 0) {
                 alert('出错了')
             }
@@ -60,6 +63,39 @@
                 }
             })
         })
+    }
+    function checkProgress(){
+
+        //sleep(2000).then(()=>{
+            var current = document.getElementsByClassName("current cvtb-MCK-course-content")
+
+            if (current[0]){
+                var currentProgress = current[0].getElementsByClassName("cvtb-MCK-CsCt-studyProgress")
+                if (currentProgress[0] && currentProgress[0].innerText == "100%"){
+                    // 获取进度
+                    var l1 = document.getElementsByClassName("cvtb-MCK-CsCt-studyProgress")
+                    var l2 = document.getElementsByClassName("cvtb-MCK-CsCt-info clearfix")
+                    var l3 = document.getElementsByClassName("cvtb-MCK-CsCt-title cvtb-text-ellipsis")
+                    console.log(l1, l2, l3)
+                    if (l1.length == 0 && l2.length == 0) {
+                        alert('出错了')
+                    }
+                    for(var i=0;i<l1.length;i++){
+                        if (l1[i].innerText != "100%") {
+                            console.log(l3[i])
+                            l2[i].click()
+                            break
+                        }
+                    }
+                    sleep(300).then(()=>{
+                        var continueBtn = document.getElementById("ccH5jumpInto")
+                        if (continueBtn != null) {
+                            continueBtn.click()
+                        }
+                    })
+                }
+            }
+        //})
     }
 
     function testUrl(name,value) {
@@ -80,6 +116,14 @@
 
     function clickContinueBtn() {
         if (url == '/viewerforccvideo.do') {
+            if ($('video')[0] && $('video')[0].paused){
+                $('video')[0].muted = true;
+                $('video')[0].playbackRate = parseInt(speed);
+                $('video')[0].play()
+            }else{
+                $('video')[0].playbackRate = parseInt(speed);
+            }
+
             if (document.getElementsByClassName("td-content").length != 0){
                 console.log('找到暂停按钮')
                 $("button:contains('继续学习')").click();
