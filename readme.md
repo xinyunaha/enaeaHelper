@@ -1,5 +1,11 @@
 # enaea_study
 `仅供学习交流使用，下载后请于24h内删除`
+
+# 前言
+* 由于作者暂无学习公社的学习任务,其他人重构了新的脚本
+* 如各位大佬能提pr，感激不尽！
+* 大家目前可以使用[sqhome-jin/enaeaHelperPlus](https://github.com/sqhome-jin/enaeaHelperPlus),感谢sqhome-jin的重构,可以给他点个star！
+  
 # 使用教程
 ## 1.下载浏览器油猴插件 Tampermonkey
 ## 2. 添加新脚本
@@ -18,6 +24,3 @@
 
 ## 已知问题
 因为视频加速特点，会导致视频播完时，进度小于100%的情况，不用担心，列表播放一遍后插件会再次检测，对于进度不满的视频再次播放直到100%。
-
-# 友情链接
-* [sqhome-jin/enaeaHelperPlus](https://github.com/sqhome-jin/enaeaHelperPlus)
