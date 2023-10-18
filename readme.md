@@ -18,3 +18,6 @@
 
 ## 已知问题
 因为视频加速特点，会导致视频播完时，进度小于100%的情况，不用担心，列表播放一遍后插件会再次检测，对于进度不满的视频再次播放直到100%。
+
+# 友情链接
+* [sqhome-jin/enaeaHelperPlus](https://github.com/sqhome-jin/enaeaHelperPlus)
